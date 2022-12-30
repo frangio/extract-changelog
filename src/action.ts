@@ -17,8 +17,10 @@ import path from 'path';
   } else {
     const version = versionMatch[1]!;
     const output = await extractSection(input, version);
-    await fs.writeFile(outputFile, output);
-    core.setOutput('file', outputFile);
+    if (output !== undefined) {
+      await fs.writeFile(outputFile, output);
+      core.setOutput('file', outputFile);
+    }
   }
 })().catch(e => {
   console.error(e);
