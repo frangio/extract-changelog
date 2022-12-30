@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+git stash push -qku
+
+npm run bundle
+
+git add -f bundle.js
+git stash pop -q

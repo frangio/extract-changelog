@@ -1,0 +1,22 @@
+{
+  "name": "extract-changelog",
+  "private": true,
+  "author": "Francisco <fg@frang.io>",
+  "license": "MIT",
+  "scripts": {
+    "bundle": "esbuild src/action.ts --bundle --minify --sourcemap=inline --platform=node --outfile=bundle.js",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/marked": "^4.0.8",
+    "@types/node": "^18.11.18",
+    "esbuild": "^0.16.12",
+    "husky": "^8.0.0",
+    "marked": "^4.2.5",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1"
+  }
+}
