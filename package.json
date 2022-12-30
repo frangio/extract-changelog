@@ -4,7 +4,7 @@
   "author": "Francisco <fg@frang.io>",
   "license": "MIT",
   "scripts": {
-    "bundle": "esbuild src/action.ts --bundle --minify --sourcemap=inline --platform=node --outfile=bundle.js",
+    "bundle": "esbuild src/action.ts --bundle --minify --platform=node --outfile=bundle.js",
     "prepare": "husky install"
   },
   "devDependencies": {
