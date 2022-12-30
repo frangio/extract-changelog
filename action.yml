@@ -1,11 +1,11 @@
 name: 'Extract Changelog'
 inputs:
   changelog:
-    description: 'The changelog file to process'
+    description: 'Changelog file to process'
     default: 'CHANGELOG.md'
-  output:
-    description: 'The location to place the changelog subset'
-    default: 'CHANGELOG-current.md'
+outputs:
+  file:
+    description: 'Path to file containing the extracted changelog section'
 runs:
   using: 'node16'
   main: 'bundle.js'
