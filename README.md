@@ -2,7 +2,7 @@
 
 Extracts the section for the current version out of the changelog.
 
-Example workflow to automate creating a release on GitHub:
+Example workflow to automate creating a release on GitHub when a tag is pushed:
 
 ```yaml
 name: release
