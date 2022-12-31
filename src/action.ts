@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import * as github from '@actions/github';
+import { Context } from '@actions/github/lib/context';
 import { extractSection } from './core';
 import { promises as fs } from 'fs';
 import path from 'path';
@@ -10,7 +10,8 @@ import path from 'path';
 
   const outputFile = path.join(await fs.mkdtemp('extract-changelog-'), 'output.md');
 
-  const versionMatch = github.context.ref.match(/^refs\/tags\/v(\d[^-]*)/);
+  const context = new Context();
+  const versionMatch = context.ref.match(/^refs\/tags\/v(\d[^-]*)/);
 
   if (!versionMatch) {
     throw Error('github.context.ref is not a tag');
