@@ -34,3 +34,31 @@ it('extracts middle section', () => {
   ].join('');
   assert.equal(extractSection(input, heading), section);
 });
+
+it('includes subsections', () => {
+  const heading = '0.1.0';
+  const section = [
+    `- One\n`,
+    `### Notice\n`,
+    `- Hear\n`,
+  ].join('');
+  const input = [
+    `# Changelog\n`,
+    `## ${heading}\n`,
+    section,
+    `## 7.0.0\n- X\n`,
+  ].join('');
+  assert.equal(extractSection(input, heading), section);
+});
+
+it('excludes outer level headings', () => {
+  const heading = '0.1.0';
+  const section = `- One\n`;
+  const input = [
+    `# Changelog\n`,
+    `## ${heading}\n`,
+    section,
+    `# Other Notes\n`,
+  ].join('');
+  assert.equal(extractSection(input, heading), section);
+});
