@@ -16,7 +16,7 @@ import path from 'path';
     throw Error('github.context.ref is not a tag');
   } else {
     const version = versionMatch[1]!;
-    const output = await extractSection(input, version);
+    const output = extractSection(input, version);
     if (output !== undefined) {
       await fs.writeFile(outputFile, output);
       core.setOutput('file', outputFile);

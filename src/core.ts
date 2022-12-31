@@ -1,7 +1,7 @@
 import { marked } from 'marked';
 import { makeWordRegExp } from './utils/word-regexp';
 
-export async function extractSection(document: string, heading: string) {
+export function extractSection(document: string, heading: string) {
   const tokens = marked.lexer(document);
   const headingRe = makeWordRegExp(heading);
   const start = tokens.findIndex(t => t.type === 'heading' && t.text.search(headingRe) === 0);
